@@ -1,4 +1,3 @@
-// Note: NodeJs version needs to be at least 7.677cfda2cf8b09cb99414b81ae62ae4091a85c08
 const { Sonos } = require("sonos");
 
 exports.handle = function(sender, pieces, db, callback) {
