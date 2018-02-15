@@ -1,4 +1,4 @@
-const statsd = require("lib/statsd");
+const statsd = require("./lib/statsd");
 
 function CatRunner() {
   console.log("constructing.");
