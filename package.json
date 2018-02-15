@@ -40,6 +40,7 @@
     "node-statsd": "^0.1.1",
     "opsgenie-sdk": "^0.4.2",
     "sanitize-filename": "^1.6.1",
-    "sprintf": "^0.1.5"
+    "sprintf": "^0.1.5",
+    "sonos": "1.0.2"
   }
 }
