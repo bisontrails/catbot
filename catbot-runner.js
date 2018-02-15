@@ -1,3 +1,5 @@
+const statsd = require("../lib/statsd");
+
 function CatRunner() {
   console.log("constructing.");
 
@@ -89,6 +91,7 @@ CatRunner.prototype.handleRtmMessage = function(message) {
 
     pieces.shift();
     const self = this;
+    statsd.increment("fcat." + moduleName);
     this.web.users.info(message.user).then(response => {
       const sender = response.user;
       handler.handle(

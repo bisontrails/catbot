@@ -1,4 +1,5 @@
 const moment = require("moment");
+const statsd = require("../lib/statsd");
 
 exports.handle = function(sender, pieces, db, callback) {
   db.run(
@@ -25,6 +26,8 @@ exports.handle = function(sender, pieces, db, callback) {
       "values(?, ?, ?, ?, ?)",
     [people[0], people[1], people[2], people[3], sender.profile.display_name]
   );
+
+  statsd.increment("pair_programming." + people[0] + "." + people[1]);
 
   const month_start = moment()
     .startOf("month")
