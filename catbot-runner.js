@@ -92,6 +92,7 @@ CatRunner.prototype.handleRtmMessage = function(message) {
     pieces.shift();
     const self = this;
     statsd.increment("fcat." + moduleName);
+    let web_container = this.web;
     this.web.users.info(message.user).then(response => {
       const sender = response.user;
       handler.handle(
@@ -107,7 +108,9 @@ CatRunner.prototype.handleRtmMessage = function(message) {
             }
           }
         },
-        bareModule
+        bareModule,
+        message,
+        web_container
       );
     });
 
