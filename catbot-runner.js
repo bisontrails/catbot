@@ -54,7 +54,7 @@ CatRunner.prototype.loader = function(moduleName) {
   try {
     return require(moduleName);
   } catch (e) {
-    console.log(e);
+    console.log("couldn't find module named " + moduleName);
   }
 };
 
@@ -75,13 +75,14 @@ CatRunner.prototype.handleRtmMessage = function(message) {
     var bareModule = this.sanitize(pieces[0]);
     var moduleName = "./modules/" + bareModule + ".js";
 
-    console.log("loading " + moduleName);
+    console.log("Attempting to load " + moduleName);
 
     var handler = this.loader(moduleName);
     if (!handler) {
       // if we didn't find a handler, try the default handler.
       console.log("loading default handler");
       moduleName = "./modules/" + this.DEFAULT_MODULE_NAME + ".js";
+      bareModule = pieces[0];
       handler = this.loader(moduleName);
     }
 
