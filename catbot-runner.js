@@ -63,7 +63,8 @@ CatRunner.prototype.shouldInvokeOn = function(message) {
     message.type == "message" &&
     message.text &&
     message.text.match &&
-    message.text.match(this.regex)
+    message.text.match(this.regex) &&
+    message.text !== "?"
   );
 };
 
